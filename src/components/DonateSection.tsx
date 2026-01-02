@@ -40,7 +40,7 @@ const DonateSection = () => {
                   <Smartphone className="w-3 h-3 text-muted-foreground shrink-0" />
                   <span className="text-xs font-bold text-foreground whitespace-nowrap">{phoneNumber}</span>
                 </div>
-                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1 rounded-md hover:bg-primary/10 transition-colors shrink-0">
+                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1 rounded-md hover:bg-primary/10 transition-colors shrink-0 ml-auto">
                   {copiedNumber === phoneNumber ? <Check className="h-3 text-primary px-[2px] w-[10px]" /> : <Copy className="w-3 h-3 text-muted-foreground" />}
                 </button>
               </div>
@@ -59,7 +59,7 @@ const DonateSection = () => {
                   <Smartphone className="w-3 h-3 text-muted-foreground shrink-0" />
                   <span className="text-xs font-bold text-foreground whitespace-nowrap">{phoneNumber}</span>
                 </div>
-                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1 rounded-md hover:bg-primary/10 transition-colors shrink-0">
+                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1 rounded-md hover:bg-primary/10 transition-colors shrink-0 ml-auto">
                   {copiedNumber === phoneNumber ? <Check className="h-3 text-primary w-[6px]" /> : <Copy className="w-3 h-3 text-muted-foreground" />}
                 </button>
               </div>
