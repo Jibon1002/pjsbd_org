@@ -41,7 +41,7 @@ const DonateSection = () => {
                   <span className="text-xs font-bold text-foreground whitespace-nowrap">{phoneNumber}</span>
                 </div>
                 <button onClick={() => copyToClipboard(phoneNumber)} className="p-1 rounded-md hover:bg-primary/10 transition-colors shrink-0">
-                  {copiedNumber === phoneNumber ? <Check className="w-3 h-3 text-primary px-[2px]" /> : <Copy className="w-3 h-3 text-muted-foreground" />}
+                  {copiedNumber === phoneNumber ? <Check className="h-3 text-primary px-[2px] w-[10px]" /> : <Copy className="w-3 h-3 text-muted-foreground" />}
                 </button>
               </div>
             </div>
