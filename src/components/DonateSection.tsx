@@ -35,13 +35,13 @@ const DonateSection = () => {
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-foreground">bKash</h3>
               </div>
-              <div className="bg-secondary/50 rounded-lg p-2.5 flex items-center justify-between px-[4px] py-px">
-                <div className="flex items-center gap-2">
-                  <Smartphone className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm md:text-base font-bold text-foreground">{phoneNumber}</span>
+              <div className="bg-secondary/50 rounded-lg px-2 py-1.5 flex items-center justify-between gap-1">
+                <div className="flex items-center gap-1 min-w-0">
+                  <Smartphone className="w-3 h-3 text-muted-foreground shrink-0" />
+                  <span className="text-xs font-bold text-foreground whitespace-nowrap">{phoneNumber}</span>
                 </div>
-                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1.5 rounded-md hover:bg-primary/10 transition-colors">
-                  {copiedNumber === phoneNumber ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
+                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1 rounded-md hover:bg-primary/10 transition-colors shrink-0">
+                  {copiedNumber === phoneNumber ? <Check className="w-3 h-3 text-primary" /> : <Copy className="w-3 h-3 text-muted-foreground" />}
                 </button>
               </div>
             </div>
@@ -54,13 +54,13 @@ const DonateSection = () => {
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-foreground">Nagad</h3>
               </div>
-              <div className="bg-secondary/50 rounded-lg p-2.5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Smartphone className="w-4 h-4 text-muted-foreground" />
-                  <span className="text-sm md:text-base font-bold text-foreground">{phoneNumber}</span>
+              <div className="bg-secondary/50 rounded-lg px-2 py-1.5 flex items-center justify-between gap-1">
+                <div className="flex items-center gap-1 min-w-0">
+                  <Smartphone className="w-3 h-3 text-muted-foreground shrink-0" />
+                  <span className="text-xs font-bold text-foreground whitespace-nowrap">{phoneNumber}</span>
                 </div>
-                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1.5 rounded-md hover:bg-primary/10 transition-colors">
-                  {copiedNumber === phoneNumber ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
+                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1 rounded-md hover:bg-primary/10 transition-colors shrink-0">
+                  {copiedNumber === phoneNumber ? <Check className="w-3 h-3 text-primary" /> : <Copy className="w-3 h-3 text-muted-foreground" />}
                 </button>
               </div>
             </div>
