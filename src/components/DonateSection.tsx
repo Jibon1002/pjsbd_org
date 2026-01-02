@@ -1,18 +1,14 @@
 import { Heart, Smartphone, Copy, Check } from "lucide-react";
 import { useState } from "react";
-
 const DonateSection = () => {
   const [copiedNumber, setCopiedNumber] = useState<string | null>(null);
   const phoneNumber = "01321-061133";
-
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text.replace("-", ""));
     setCopiedNumber(text);
     setTimeout(() => setCopiedNumber(null), 2000);
   };
-
-  return (
-    <section id="donate" className="py-12 md:py-20 bg-background relative overflow-hidden">
+  return <section id="donate" className="py-12 md:py-20 bg-background relative overflow-hidden">
       <div className="container mx-auto px-4 relative">
         <div className="max-w-2xl mx-auto">
           {/* Section Header */}
@@ -35,28 +31,17 @@ const DonateSection = () => {
             <div className="p-4 md:p-5 bg-card rounded-xl shadow-soft border border-transparent hover:border-[#E2136E]/20 transition-all">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-10 h-10 bg-[#E2136E]/10 rounded-lg flex items-center justify-center">
-                  <img 
-                    src="https://www.logo.wine/a/logo/BKash/BKash-Icon-Logo.wine.svg" 
-                    alt="bKash"
-                    className="w-6 h-6 object-contain"
-                  />
+                  <img src="https://www.logo.wine/a/logo/BKash/BKash-Icon-Logo.wine.svg" alt="bKash" className="w-6 h-6 object-contain" />
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-foreground">bKash</h3>
               </div>
-              <div className="bg-secondary/50 rounded-lg p-2.5 flex items-center justify-between">
+              <div className="bg-secondary/50 rounded-lg p-2.5 flex items-center justify-between px-[4px] py-px">
                 <div className="flex items-center gap-2">
                   <Smartphone className="w-4 h-4 text-muted-foreground" />
                   <span className="text-sm md:text-base font-bold text-foreground">{phoneNumber}</span>
                 </div>
-                <button
-                  onClick={() => copyToClipboard(phoneNumber)}
-                  className="p-1.5 rounded-md hover:bg-primary/10 transition-colors"
-                >
-                  {copiedNumber === phoneNumber ? (
-                    <Check className="w-4 h-4 text-primary" />
-                  ) : (
-                    <Copy className="w-4 h-4 text-muted-foreground" />
-                  )}
+                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1.5 rounded-md hover:bg-primary/10 transition-colors">
+                  {copiedNumber === phoneNumber ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
                 </button>
               </div>
             </div>
@@ -65,11 +50,7 @@ const DonateSection = () => {
             <div className="p-4 md:p-5 bg-card rounded-xl shadow-soft border border-transparent hover:border-[#F6921E]/20 transition-all">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-10 h-10 bg-[#F6921E]/10 rounded-lg flex items-center justify-center">
-                  <img 
-                    src="https://nagad.com.bd/wp-content/uploads/2023/07/Nagad-Logo.svg"
-                    alt="Nagad"
-                    className="w-6 h-6 object-contain"
-                  />
+                  <img src="https://nagad.com.bd/wp-content/uploads/2023/07/Nagad-Logo.svg" alt="Nagad" className="w-6 h-6 object-contain" />
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-foreground">Nagad</h3>
               </div>
@@ -78,15 +59,8 @@ const DonateSection = () => {
                   <Smartphone className="w-4 h-4 text-muted-foreground" />
                   <span className="text-sm md:text-base font-bold text-foreground">{phoneNumber}</span>
                 </div>
-                <button
-                  onClick={() => copyToClipboard(phoneNumber)}
-                  className="p-1.5 rounded-md hover:bg-primary/10 transition-colors"
-                >
-                  {copiedNumber === phoneNumber ? (
-                    <Check className="w-4 h-4 text-primary" />
-                  ) : (
-                    <Copy className="w-4 h-4 text-muted-foreground" />
-                  )}
+                <button onClick={() => copyToClipboard(phoneNumber)} className="p-1.5 rounded-md hover:bg-primary/10 transition-colors">
+                  {copiedNumber === phoneNumber ? <Check className="w-4 h-4 text-primary" /> : <Copy className="w-4 h-4 text-muted-foreground" />}
                 </button>
               </div>
             </div>
@@ -98,8 +72,6 @@ const DonateSection = () => {
           </p>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default DonateSection;
