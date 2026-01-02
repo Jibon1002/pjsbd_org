@@ -7,7 +7,7 @@ const HeroSection = () => {
       });
     }
   };
-  return <section id="home" className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  return <section id="home" className="relative min-h-[75vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-14 md:pt-16">
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-hero" />
       

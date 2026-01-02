@@ -57,7 +57,12 @@ const AboutSection = () => {
         }, {
           number: "৫+",
           label: "বছর"
-        }].map((stat, index) => {})}
+        }].map((stat, index) => (
+            <div key={index} className="text-center p-3 md:p-4 bg-secondary/50 rounded-lg">
+              <div className="text-lg md:text-2xl font-bold text-primary">{stat.number}</div>
+              <div className="text-xs md:text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>;
