@@ -1,4 +1,4 @@
-import { Heart } from "lucide-react";
+import { Heart, Facebook } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -57,6 +57,17 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>বাংলাদেশ</li>
+                <li>
+                  <a 
+                    href="https://www.facebook.com/ProjonmoJagoronCouncil/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 hover:text-primary-foreground transition-colors"
+                  >
+                    <Facebook className="w-4 h-4" />
+                    <span>Facebook</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
