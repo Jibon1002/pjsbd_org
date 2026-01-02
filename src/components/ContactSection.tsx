@@ -64,27 +64,7 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="bg-card rounded-xl shadow-soft p-4 md:p-5">
-              <h3 className="text-sm font-bold text-foreground mb-4">বার্তা পাঠান</h3>
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <input type="text" value={formData.name} onChange={e => setFormData({
-                ...formData,
-                name: e.target.value
-              })} className="w-full px-3 py-2.5 bg-secondary/50 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors" placeholder="আপনার নাম" required />
-                <input type="email" value={formData.email} onChange={e => setFormData({
-                ...formData,
-                email: e.target.value
-              })} className="w-full px-3 py-2.5 bg-secondary/50 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors" placeholder="ইমেইল" required />
-                <textarea value={formData.message} onChange={e => setFormData({
-                ...formData,
-                message: e.target.value
-              })} rows={3} className="w-full px-3 py-2.5 bg-secondary/50 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none" placeholder="বার্তা লিখুন..." required />
-                <button type="submit" className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground text-sm font-semibold rounded-lg shadow-soft hover:shadow-glow transition-all duration-300">
-                  <Send className="w-4 h-4" />
-                  পাঠান
-                </button>
-              </form>
-            </div>
+            
           </div>
         </div>
       </div>

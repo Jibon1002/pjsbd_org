@@ -17,7 +17,7 @@ const AboutSection = () => {
     title: "আমাদের দল",
     description: "নিবেদিতপ্রাণ স্বেচ্ছাসেবক।"
   }];
-  return <section id="about" className="py-12 md:py-20 bg-background">
+  return <section id="about" className="md:py-20 bg-background py-[10px]">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-8 md:mb-12">
