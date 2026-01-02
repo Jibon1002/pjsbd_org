@@ -50,7 +50,7 @@ const DonateSection = () => {
             <div className="p-4 md:p-5 bg-card rounded-xl shadow-soft border border-transparent hover:border-[#F6921E]/20 transition-all">
               <div className="flex items-center gap-2 mb-3">
                 <div className="w-10 h-10 bg-[#F6921E]/10 rounded-lg flex items-center justify-center">
-                  <img src="https://nagad.com.bd/wp-content/uploads/2023/07/Nagad-Logo.svg" alt="Nagad" className="w-6 h-6 object-contain" />
+                  <img src="https://download.logo.wine/logo/Nagad/Nagad-Logo.wine.png" alt="Nagad" className="w-6 h-6 object-contain" />
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-foreground">Nagad</h3>
               </div>
