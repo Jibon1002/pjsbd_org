@@ -30,7 +30,7 @@ const DonateSection = () => {
             {/* bKash */}
             <div className="p-4 md:p-5 bg-card rounded-xl shadow-soft border border-transparent hover:border-[#E2136E]/20 transition-all">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-10 h-10 bg-[#E2136E]/10 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-[#E2136E]/10 flex items-center justify-center">
                   <img src="https://www.logo.wine/a/logo/BKash/BKash-Icon-Logo.wine.svg" alt="bKash" className="w-6 h-6 object-contain" />
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-foreground">bKash</h3>
@@ -47,7 +47,7 @@ const DonateSection = () => {
             {/* Nagad */}
             <div className="p-4 md:p-5 bg-card rounded-xl shadow-soft border border-transparent hover:border-[#F6921E]/20 transition-all">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-10 h-10 bg-[#F6921E]/10 rounded-lg flex items-center justify-center">
+                <div className="w-10 h-10 bg-[#F6921E]/10 flex items-center justify-center">
                   <img src="https://download.logo.wine/logo/Nagad/Nagad-Logo.wine.png" alt="Nagad" className="w-6 h-6 object-contain" />
                 </div>
                 <h3 className="text-sm md:text-base font-bold text-foreground">Nagad</h3>
