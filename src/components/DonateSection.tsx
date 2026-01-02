@@ -13,7 +13,7 @@ const DonateSection = () => {
         <div className="max-w-2xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-6 md:mb-8">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-accent/20 rounded-full text-accent-foreground text-xs font-medium mb-3">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-accent-foreground text-xs font-medium mb-3 bg-secondary-foreground">
               <Heart className="w-3 h-3 fill-current" />
               দান করুন
             </span>
