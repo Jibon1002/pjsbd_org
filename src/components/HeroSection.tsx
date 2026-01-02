@@ -1,22 +1,22 @@
-import { ChevronDown } from "lucide-react";
-
 const HeroSection = () => {
   const scrollToAbout = () => {
     const element = document.querySelector("#about");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth"
+      });
     }
   };
-
-  return (
-    <section id="home" className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-16">
+  return <section id="home" className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-16">
       {/* Background with gradient overlay */}
       <div className="absolute inset-0 bg-gradient-hero" />
       
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-32 md:w-64 h-32 md:h-64 bg-primary-foreground/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-48 md:w-96 h-48 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "2s" }} />
+        <div className="absolute bottom-20 right-10 w-48 md:w-96 h-48 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{
+        animationDelay: "2s"
+      }} />
       </div>
 
       {/* Organic shapes */}
@@ -38,43 +38,39 @@ const HeroSection = () => {
           প্রজন্ম জাগরণ কাউন্সিল
         </h1>
 
-        <p className="animate-slide-up text-base md:text-xl text-primary-foreground/80 mb-4 md:mb-6 max-w-2xl mx-auto leading-relaxed" style={{ animationDelay: "0.2s" }}>
+        <p className="animate-slide-up text-base md:text-xl text-primary-foreground/80 mb-4 md:mb-6 max-w-2xl mx-auto leading-relaxed" style={{
+        animationDelay: "0.2s"
+      }}>
           আগামীর বাংলাদেশ গড়তে আজকের প্রজন্মকে জাগ্রত করি
         </p>
 
-        <p className="animate-slide-up text-sm md:text-base text-primary-foreground/70 mb-6 md:mb-10 max-w-xl mx-auto hidden sm:block" style={{ animationDelay: "0.3s" }}>
+        <p className="animate-slide-up text-sm md:text-base text-primary-foreground/70 mb-6 md:mb-10 max-w-xl mx-auto hidden sm:block" style={{
+        animationDelay: "0.3s"
+      }}>
           সমাজে ইতিবাচক পরিবর্তন আনতে আমরা একসাথে কাজ করছি।
         </p>
 
-        <div className="animate-slide-up flex flex-col sm:flex-row gap-3 justify-center" style={{ animationDelay: "0.4s" }}>
-          <button
-            onClick={() => {
-              const element = document.querySelector("#donate");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="px-5 py-2.5 md:px-6 md:py-3 bg-accent text-accent-foreground text-sm md:text-base font-semibold rounded-lg shadow-elevated hover:shadow-glow transition-all duration-300 hover:-translate-y-1"
-          >
+        <div className="animate-slide-up flex flex-col sm:flex-row gap-3 justify-center" style={{
+        animationDelay: "0.4s"
+      }}>
+          <button onClick={() => {
+          const element = document.querySelector("#donate");
+          if (element) element.scrollIntoView({
+            behavior: "smooth"
+          });
+        }} className="px-5 py-2.5 md:px-6 md:py-3 bg-accent text-accent-foreground text-sm md:text-base font-semibold rounded-lg shadow-elevated hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
             দান করুন
           </button>
-          <button
-            onClick={scrollToAbout}
-            className="px-5 py-2.5 md:px-6 md:py-3 bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground text-sm md:text-base font-semibold rounded-lg border border-primary-foreground/20 hover:bg-primary-foreground/20 transition-all duration-300"
-          >
+          <button onClick={scrollToAbout} className="px-5 py-2.5 md:px-6 md:py-3 bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground text-sm md:text-base font-semibold rounded-lg border border-primary-foreground/20 hover:bg-primary-foreground/20 transition-all duration-300">
             আরও জানুন
           </button>
         </div>
 
         {/* Scroll indicator */}
-        <button
-          onClick={scrollToAbout}
-          className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 animate-bounce text-primary-foreground/60 hover:text-primary-foreground transition-colors"
-          aria-label="Scroll down"
-        >
-          <ChevronDown className="w-6 h-6 md:w-7 md:h-7" />
+        <button onClick={scrollToAbout} className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 animate-bounce text-primary-foreground/60 hover:text-primary-foreground transition-colors" aria-label="Scroll down">
+          
         </button>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
