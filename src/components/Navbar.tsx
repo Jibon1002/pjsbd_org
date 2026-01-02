@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail, Heart, Users, BookOpen, MessageCircle, Camera, ChevronDown } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,9 +40,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2" onClick={() => handleNavClick("#home")}>
-            <div className="w-8 h-8 rounded-full bg-gradient-hero flex items-center justify-center shadow-glow">
-              <span className="text-primary-foreground font-bold text-sm">প্র</span>
-            </div>
+            <img src={logo} alt="প্রজন্ম জাগরণ কাউন্সিল" className="w-8 h-8 rounded-md object-contain" />
             <span className={`font-bold text-sm hidden sm:block ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
               প্রজন্ম জাগরণ
             </span>
