@@ -15,11 +15,9 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "#home", label: "হোম" },
-    { href: "#about", label: "আমাদের সম্পর্কে" },
+    { href: "#about", label: "সম্পর্কে" },
     { href: "#activities", label: "কার্যক্রম" },
-    { href: "#quotes", label: "উক্তি" },
-    { href: "#gallery", label: "গ্যালারি" },
-    { href: "#donate", label: "দান করুন" },
+    { href: "#donate", label: "দান" },
     { href: "#contact", label: "যোগাযোগ" },
   ];
 
@@ -38,24 +36,24 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2" onClick={() => handleNavClick("#home")}>
-            <div className="w-10 h-10 rounded-full bg-gradient-hero flex items-center justify-center shadow-glow">
-              <span className="text-primary-foreground font-bold text-lg">প্র</span>
+            <div className="w-8 h-8 rounded-full bg-gradient-hero flex items-center justify-center shadow-glow">
+              <span className="text-primary-foreground font-bold text-sm">প্র</span>
             </div>
-            <span className={`font-bold text-lg hidden sm:block ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
+            <span className={`font-bold text-sm hidden sm:block ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
               প্রজন্ম জাগরণ
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-primary/10 ${
+                className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-200 hover:bg-primary/10 ${
                   scrolled ? "text-foreground hover:text-primary" : "text-primary-foreground/90 hover:text-primary-foreground"
                 }`}
               >
@@ -67,27 +65,27 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
+            className={`md:hidden p-1.5 rounded-md transition-colors ${
               scrolled ? "text-foreground hover:bg-muted" : "text-primary-foreground hover:bg-primary-foreground/10"
             }`}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isOpen ? "max-h-96 pb-4" : "max-h-0"
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isOpen ? "max-h-80 pb-3" : "max-h-0"
           }`}
         >
-          <div className="bg-card rounded-xl shadow-elevated p-2 mt-2">
+          <div className="bg-card rounded-lg shadow-elevated p-1.5 mt-1.5">
             {navLinks.map((link) => (
               <button
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
-                className="w-full text-left px-4 py-3 rounded-lg text-foreground hover:bg-secondary transition-colors"
+                className="w-full text-left px-3 py-2 rounded-md text-sm text-foreground hover:bg-secondary transition-colors"
               >
                 {link.label}
               </button>
