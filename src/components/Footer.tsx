@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,9 +25,7 @@ const Footer = () => {
             {/* About */}
             <div className="col-span-2">
               <div className="flex items-center gap-2 mb-3">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">প্র</span>
-                </div>
+                <img src={logo} alt="প্রজন্ম জাগরণ কাউন্সিল" className="w-8 h-8 rounded-md object-contain" />
                 <h3 className="font-bold text-sm">প্রজন্ম জাগরণ কাউন্সিল</h3>
               </div>
               <p className="text-primary-foreground/70 text-xs leading-relaxed max-w-xs">
