@@ -13,6 +13,11 @@ const teamMembers = [
     role: "সদস্য সচিব",
     image: bokkorImage,
   },
+  {
+    name: "মোঃ শরীফ হোসেন",
+    role: "প্রচার সম্পাদক",
+    image: null,
+  },
 ];
 
 const TeamSection = () => {
