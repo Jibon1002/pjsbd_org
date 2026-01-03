@@ -1,6 +1,7 @@
 import { User } from "lucide-react";
 import nadimImage from "@/assets/team-nadim.jpg";
 import bokkorImage from "@/assets/team-bokkor.jpg";
+import sharifImage from "@/assets/team-sharif.jpg";
 
 const teamMembers = [
   {
@@ -16,7 +17,7 @@ const teamMembers = [
   {
     name: "মোঃ শরীফ হোসেন",
     role: "প্রচার সম্পাদক",
-    image: null,
+    image: sharifImage,
   },
 ];
 
