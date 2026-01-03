@@ -61,8 +61,11 @@ const HeroSection = () => {
         }} className="px-5 py-2.5 md:px-6 md:py-3 bg-accent text-accent-foreground text-sm md:text-base font-semibold rounded-lg shadow-elevated hover:shadow-glow transition-all duration-300 hover:-translate-y-1">
             দান করুন
           </button>
-          <button onClick={scrollToAbout} className="px-5 py-2.5 md:px-6 md:py-3 bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground text-sm md:text-base font-semibold rounded-lg border border-primary-foreground/20 hover:bg-primary-foreground/20 transition-all duration-300">
-            আরও জানুন
+          <button onClick={() => {
+            const element = document.querySelector("#contact");
+            if (element) element.scrollIntoView({ behavior: "smooth" });
+          }} className="px-5 py-2.5 md:px-6 md:py-3 bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground text-sm md:text-base font-semibold rounded-lg border border-primary-foreground/20 hover:bg-primary-foreground/20 transition-all duration-300">
+            স্বেচ্ছাসেবক হোন
           </button>
         </div>
 
