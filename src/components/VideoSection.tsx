@@ -8,12 +8,8 @@ import {
 } from "@/components/ui/carousel";
 
 // Add your YouTube video IDs here (latest first)
-// Get video ID from YouTube URL: https://www.youtube.com/watch?v=VIDEO_ID
 const videos = [
-  { id: "VIDEO_ID_1", title: "ভিডিও ১" },
-  // { id: "VIDEO_ID_2", title: "ভিডিও ২" },
-  // { id: "VIDEO_ID_3", title: "ভিডিও ৩" },
-  // { id: "VIDEO_ID_4", title: "ভিডিও ৪" },
+  { id: "4_EXt-rg3X0", title: "প্রজন্ম জাগরণ" },
 ];
 
 const VideoSection = () => {
