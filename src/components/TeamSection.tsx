@@ -2,6 +2,7 @@ import { User } from "lucide-react";
 import nadimImage from "@/assets/team-nadim.jpg";
 import bokkorImage from "@/assets/team-bokkor.jpg";
 import sharifImage from "@/assets/team-sharif.jpg";
+import imranImage from "@/assets/team-imran.jpg";
 import {
   Carousel,
   CarouselContent,
