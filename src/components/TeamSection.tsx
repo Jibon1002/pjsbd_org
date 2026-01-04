@@ -22,6 +22,11 @@ const teamMembers = [
     image: bokkorImage,
   },
   {
+    name: "মোঃ ইমরান হোসেন,",
+    role: "জনসংযোগ সম্পাদক",
+    image: imranImage,
+  },
+  {
     name: "মোঃ শরীফ হোসেন",
     role: "প্রচার সম্পাদক",
     image: sharifImage,
