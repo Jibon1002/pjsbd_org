@@ -9,6 +9,7 @@ import {
 
 // Add your YouTube video IDs here (latest first)
 const videos = [
+  { id: "rrMt66ijNHs", title: "প্রজন্ম জাগরণ" },
   { id: "4_EXt-rg3X0", title: "প্রজন্ম জাগরণ" },
 ];
 
