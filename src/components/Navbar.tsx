@@ -43,7 +43,7 @@ const Navbar = () => {
           <a href="#home" className="flex items-center gap-2" onClick={() => handleNavClick("#home")}>
             <img src={logo} alt="প্রজন্ম জাগরণ কাউন্সিল" className="w-8 h-8 rounded-md object-contain" />
             <span className={`font-bold text-sm hidden sm:block ${scrolled ? "text-foreground" : "text-primary-foreground"}`}>
-              প্রজন্ম জাগরণ
+              প্রজন্ম জাগরণ কাউন্সিল
             </span>
           </a>
 
