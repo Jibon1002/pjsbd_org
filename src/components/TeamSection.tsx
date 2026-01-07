@@ -32,6 +32,11 @@ const teamMembers = [
     role: "প্রচার সম্পাদক",
     image: sharifImage,
   },
+   {
+    name: "মোঃ শহিদুল ইসলাম (শহিদ)",
+    role: "কার্যনির্বাহী সদস্য",
+    image: shohidImage,
+  },
 ];
 
 const TeamSection = () => {
