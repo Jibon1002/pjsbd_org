@@ -34,7 +34,7 @@ const teamMembers = [
     image: sharifImage,
   },
    {
-    name: "মোঃ শহিদুল ইসলাম (শহিদ)",
+    name: "মোঃ শহিদুল ইসলাম শহিদ",
     role: "কার্যনির্বাহী সদস্য",
     image: shohidImage,
   },
