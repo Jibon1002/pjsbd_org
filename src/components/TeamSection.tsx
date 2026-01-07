@@ -4,6 +4,7 @@ import bokkorImage from "@/assets/team-bokkor.jpg";
 import sharifImage from "@/assets/team-sharif.jpg"; 
 import imranImage from "@/assets/team-imran.jpg";
 import shohidImage from "@/assets/team-shohid.jpg";
+
 import {
   Carousel,
   CarouselContent,
@@ -31,7 +32,7 @@ const teamMembers = [
   {
     name: "মোঃ শরীফ হোসেন",
     role: "প্রচার সম্পাদক",
-    image: sharipImage,
+    image: sharifImage,
   },
    {
     name: "মোঃ শহিদুল ইসলাম শহিদ",
@@ -41,7 +42,7 @@ const teamMembers = [
 ];
 
 const TeamSection = () => {
-  // Group members into pairs (2 per slide)
+  // Group members into pairs (3 per slide)
   const memberPairs: typeof teamMembers[] = [];
   for (let i = 0; i < teamMembers.length; i += 2) {
     memberPairs.push(teamMembers.slice(i, i + 2));
