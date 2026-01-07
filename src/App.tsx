@@ -20,7 +20,15 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Index />} />
+    <Route path="*" element={<NotFound />} />
+  </Routes>
+
+  {/* WhatsApp Floating Button */}
+  <WhatsAppButton />
+</BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
