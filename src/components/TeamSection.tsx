@@ -31,7 +31,7 @@ const teamMembers = [
   {
     name: "মোঃ শরীফ হোসেন",
     role: "প্রচার সম্পাদক",
-    image: sharifImage,
+    image: sharipImage,
   },
    {
     name: "মোঃ শহিদুল ইসলাম শহিদ",
