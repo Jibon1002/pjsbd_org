@@ -3,7 +3,7 @@ import nadimImage from "@/assets/team-nadim.jpg";
 import bokkorImage from "@/assets/team-bokkor.jpg";
 import sharifImage from "@/assets/team-sharif.jpg";
 import imranImage from "@/assets/team-imran.jpg";
-import imranImage from "@/assets/team-shohid.jpg";
+import shohidImage from "@/assets/team-shohid.jpg";
 import {
   Carousel,
   CarouselContent,
