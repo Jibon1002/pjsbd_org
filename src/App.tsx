@@ -12,23 +12,21 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      {/* Global Notifications */}
       <Toaster />
       <Sonner />
+
       <BrowserRouter>
+        {/* Routes */}
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Add more routes here as needed */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-<BrowserRouter>
-  <Routes>
-    <Route path="/" element={<Index />} />
-    <Route path="*" element={<NotFound />} />
-  </Routes>
 
-  {/* WhatsApp Floating Button */}
-  <WhatsAppButton />
-</BrowserRouter>
+        {/* WhatsApp Floating Button: visible on all pages */}
+        <WhatsAppButton />
+      </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
 );
