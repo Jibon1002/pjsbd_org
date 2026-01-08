@@ -5,6 +5,7 @@ import sharifImage from "@/assets/team-sharif.jpg";
 import imranImage from "@/assets/team-imran.jpg";
 import shohidImage from "@/assets/team-shohid.jpg";
 import uzzalImage from "@/assets/team-uzzal.jpg";
+import jalilImage from "@/assets/team-jalil.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -28,6 +29,11 @@ const teamMembers = [
     name: "মোঃ উজ্জল হোসেন",
     role: "সাংগঠনিক সম্পাদক",
     image: uzzalImage,
+  },
+    {
+    name: "মোঃ আব্দুল জলিল",
+    role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক",
+    image: jalilImage,
   },
   {
     name: "মোঃ ইমরান হোসেন",
