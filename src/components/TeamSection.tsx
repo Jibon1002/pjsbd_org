@@ -4,7 +4,7 @@ import bokkorImage from "@/assets/team-bokkor.jpg";
 import sharifImage from "@/assets/team-sharif.jpg"; 
 import imranImage from "@/assets/team-imran.jpg";
 import shohidImage from "@/assets/team-shohid.jpg";
-
+import uzzalImage from "@/assets/team-uzzal.jpg";
 import {
   Carousel,
   CarouselContent,
@@ -23,6 +23,11 @@ const teamMembers = [
     name: "আবু বক্কর সিদ্দিক",
     role: "সদস্য সচিব",
     image: bokkorImage,
+  },
+   {
+    name: "মোঃ উজ্জল হোসেন",
+    role: "সাংগঠনিক সম্পাদক",
+    image: uzzalImage,
   },
   {
     name: "মোঃ ইমরান হোসেন",
