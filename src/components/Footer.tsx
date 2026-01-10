@@ -25,8 +25,8 @@ const Footer = () => {
             {/* About */}
             <div className="col-span-2">
               <div className="flex items-center gap-2 mb-3">
-                <img src={logo} alt="প্রজন্ম জাগরণ কাউন্সিল" className="w-8 h-8 rounded-md object-contain" />
-                <h3 className="font-bold text-sm">প্রজন্ম জাগরণ কাউন্সিল</h3>
+                <img src={logo} alt="প্রজন্ম জাগরণ সোসাইটি" className="w-8 h-8 rounded-md object-contain" />
+                <h3 className="font-bold text-sm">প্রজন্ম জাগরণ সোসাইটি</h3>
               </div>
               <p className="text-primary-foreground/70 text-xs leading-relaxed max-w-xs">
                 সমাজে ইতিবাচক পরিবর্তন আনতে কাজ করছি।
@@ -59,7 +59,7 @@ const Footer = () => {
                 <li>বাংলাদেশ</li>
                 <li>
                   <a 
-                    href="https://www.facebook.com/ProjonmoJagoronCouncil/" 
+                    href="https://www.facebook.com/ProjonmoJagoronSociety/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 hover:text-primary-foreground transition-colors"
@@ -77,7 +77,7 @@ const Footer = () => {
 
         <div className="py-4 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p className="text-primary-foreground/60 text-xs">
-            © {currentYear} প্রজন্ম জাগরণ কাউন্সিল
+            © {currentYear} প্রজন্ম জাগরণ সোসাইটি 
           </p>
           <p className="flex items-center gap-1 text-primary-foreground/60 text-xs">
             <Heart className="w-3 h-3 fill-current text-red-400" />
