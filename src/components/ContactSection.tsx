@@ -10,7 +10,7 @@ const ContactSection = () => {
     e.preventDefault();
     const subject = encodeURIComponent(`প্রজন্ম জাগরণ - ${formData.name}`);
     const body = encodeURIComponent(`নাম: ${formData.name}\nইমেইল: ${formData.email}\n\nবার্তা:\n${formData.message}`);
-    window.location.href = `mailto:projonmojagoroncouncil@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:pjsbdorg@gmail.com?subject=${subject}&body=${body}`;
   };
   return <section id="contact" className="py-12 md:py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -34,8 +34,8 @@ const ContactSection = () => {
                 </div>
                 <div className="min-w-0">
                   <h4 className="text-xs font-semibold text-foreground">ইমেইল</h4>
-                  <a href="mailto:projonmojagoroncouncil@gmail.com" className="text-xs text-muted-foreground hover:text-primary transition-colors break-all">
-                    projonmojagoroncouncil@gmail.com
+                  <a href="mailto:pjsbdorg@gmail.com" className="text-xs text-muted-foreground hover:text-primary transition-colors break-all">
+                    pjsbdorg@gmail.com
                   </a>
                 </div>
               </div>
