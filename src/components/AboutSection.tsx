@@ -25,7 +25,7 @@ const AboutSection = () => {
             আমাদের সম্পর্কে
           </span>
           <h2 className="text-xl md:text-3xl font-bold text-foreground mb-3">
-            প্রজন্ম জাগরণ কাউন্সিল
+            প্রজন্ম জাগরণ সোসাইটি
           </h2>
           <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             আমরা একটি অরাজনৈতিক, অলাভজনক সামাজিক সংগঠন। সমাজের উন্নয়নে কাজ করছি।
