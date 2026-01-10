@@ -35,7 +35,7 @@ const HeroSection = () => {
         </div>
 
         <h1 className="animate-slide-up text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-3 md:mb-5 leading-tight">
-          প্রজন্ম জাগরণ কাউন্সিল
+          প্রজন্ম জাগরণ সোসাইটি 
         </h1>
 
         <p className="animate-slide-up text-base md:text-xl text-primary-foreground/80 mb-4 md:mb-6 max-w-2xl mx-auto leading-relaxed" style={{
