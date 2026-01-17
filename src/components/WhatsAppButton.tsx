@@ -1,4 +1,5 @@
 import React from "react";
+import { MessageCircle } from "lucide-react";
 
 const WhatsAppButton: React.FC = () => {
   const phoneNumber = "8801321061133";
@@ -15,26 +16,9 @@ const WhatsAppButton: React.FC = () => {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      style={{
-        position: "fixed",
-        bottom: "24px",
-        right: "24px",
-        width: "56px",
-        height: "56px",
-        backgroundColor: "#25D366",
-        color: "#ffffff",
-        borderRadius: "50%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontSize: "28px",
-        boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-        zIndex: 9999,
-        textDecoration: "none",
-        cursor: "pointer",
-      }}
+      className="fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg z-[9999] hover:scale-110 transition-transform"
     >
-      💬
+      <MessageCircle className="w-7 h-7" fill="white" />
     </a>
   );
 };
