@@ -9,14 +9,33 @@ const HeroSection = () => {
   };
   return <section id="home" className="relative min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden pt-10 md:pt-16">
       {/* Background with gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-hero" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(217,70%,35%)] via-[hsl(220,65%,45%)] to-[hsl(225,60%,55%)]" />
       
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-10 w-32 md:w-64 h-32 md:h-64 bg-primary-foreground/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-48 md:w-96 h-48 md:h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{
-        animationDelay: "2s"
+      {/* Grid pattern overlay */}
+      <div className="absolute inset-0 opacity-10" style={{
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+        backgroundSize: '40px 40px'
       }} />
+      
+      {/* Radial glow effects */}
+      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[hsl(217,70%,60%)] rounded-full blur-[120px] opacity-20" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-[hsl(200,80%,50%)] rounded-full blur-[100px] opacity-15" />
+      
+      {/* Decorative geometric elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating circles */}
+        <div className="absolute top-20 left-10 w-32 md:w-64 h-32 md:h-64 border border-white/10 rounded-full animate-float" />
+        <div className="absolute top-40 right-20 w-20 md:w-40 h-20 md:h-40 border border-white/5 rounded-full animate-float" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-40 left-1/4 w-16 md:w-24 h-16 md:h-24 bg-white/5 rounded-full animate-float" style={{ animationDelay: "3s" }} />
+        
+        {/* Glowing orbs */}
+        <div className="absolute top-1/3 right-10 w-3 h-3 bg-white/40 rounded-full animate-pulse" />
+        <div className="absolute top-1/2 left-20 w-2 h-2 bg-white/30 rounded-full animate-pulse" style={{ animationDelay: "1s" }} />
+        <div className="absolute bottom-1/3 right-1/3 w-2 h-2 bg-white/20 rounded-full animate-pulse" style={{ animationDelay: "2s" }} />
+        
+        {/* Diagonal lines */}
+        <div className="absolute top-0 right-0 w-[400px] h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent rotate-45 translate-x-20 -translate-y-20" />
+        <div className="absolute bottom-0 left-0 w-[300px] h-[1px] bg-gradient-to-r from-transparent via-white/15 to-transparent -rotate-45 -translate-x-10 translate-y-10" />
       </div>
 
       {/* Organic shapes */}
