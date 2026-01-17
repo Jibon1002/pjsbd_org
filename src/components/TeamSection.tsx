@@ -7,6 +7,7 @@ import shohidImage from "@/assets/team-shohid.jpg";
 import uzzalImage from "@/assets/team-uzzal.jpg";
 import jalilImage from "@/assets/team-jalil.jpg";
 import tariqImage from "@/assets/team-tariq.jpg";
+import tariqImage from "@/assets/team-rashedul.jpg";
 
 const teamMembers = [
   {
@@ -23,6 +24,11 @@ const teamMembers = [
     name: "মোঃ উজ্জল হোসেন",
     role: "সাংগঠনিক সম্পাদক",
     image: uzzalImage,
+  },
+    {
+    name: "এম. রাশেদুল ইসলাম",
+    role: "ধর্ম বিষয়ক সম্পাদক",
+    image: rashedulImage,
   },
     {
     name: "মোঃ আব্দুল জলিল",
