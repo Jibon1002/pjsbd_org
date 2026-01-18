@@ -11,6 +11,7 @@ import uzzalImage from "@/assets/team-uzzal.jpg";
 import jalilImage from "@/assets/team-jalil.jpg";
 import tariqImage from "@/assets/team-tariq.jpg";
 import rashedulImage from "@/assets/team-rashedul.jpg";
+import alrakibImage from "@/assets/team-alrakib.jpg";
 
 const executiveMembers = [
   { name: "মোঃ নাদিম মোস্তফা জীবন", role: "আহ্বায়ক", image: nadimImage },
@@ -31,7 +32,7 @@ const generalMembers = [
 ];
 
 const volunteers = [
-  { name: "স্বেচ্ছাসেবক ১", role: "স্বেচ্ছাসেবক", image: null },
+  { name: "স্বেচ্ছাসেবক ১", role: "স্বেচ্ছাসেবক", image: alrakibImage },
   { name: "স্বেচ্ছাসেবক ২", role: "স্বেচ্ছাসেবক", image: null },
   { name: "স্বেচ্ছাসেবক ৩", role: "স্বেচ্ছাসেবক", image: null },
 ];
