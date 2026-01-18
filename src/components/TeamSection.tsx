@@ -32,7 +32,7 @@ const generalMembers = [
 ];
 
 const volunteers = [
-  { name: "স্বেচ্ছাসেবক ১", role: "স্বেচ্ছাসেবক", image: alrakibImage },
+  { name: "আব্দুল্লাহ আল রাকিব", role: "স্বেচ্ছাসেবক", image: alrakibImage },
   { name: "স্বেচ্ছাসেবক ২", role: "স্বেচ্ছাসেবক", image: null },
   { name: "স্বেচ্ছাসেবক ৩", role: "স্বেচ্ছাসেবক", image: null },
 ];
