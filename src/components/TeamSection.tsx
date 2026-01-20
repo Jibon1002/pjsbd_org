@@ -1,4 +1,4 @@
-import { User, ChevronDown, ChevronUp, X } from "lucide-react";
+import { User, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -8,7 +8,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-// Import team images
+// Images
 import tariqImage from "@/assets/team-tariq.jpg";
 import rashedulImage from "@/assets/team-rashedul.jpg";
 import nadimImage from "@/assets/team-nadim.jpg";
@@ -27,6 +27,10 @@ interface Member {
   image: string | null;
 }
 
+/* =====================
+   DATA
+===================== */
+
 const centralLeadership: Member[] = [
   { name: "মোঃ নাদিম মোস্তফা জীবন", role: "আহ্বায়ক", image: nadimImage },
   { name: "মোঃ মিজানুর রহমান", role: "সহ-আহ্বায়ক", image: mizanImage },
@@ -38,13 +42,10 @@ const executiveCommittee: Member[] = [
   { name: "মাওঃ এম রাশেদুল ইসলাম", role: "ধর্ম বিষয়ক সম্পাদক", image: rashedulImage },
   { name: "আব্দুল জলিল", role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক", image: jalilImage },
   { name: "মোঃ শহিদুল ইসলাম", role: "কার্যনির্বাহী সদস্য", image: shohidImage },
-];
-
-onst advisoryBoard: Member[] = [
   { name: "তারিকুল ইসলাম", role: "নৈতিক পরামর্শক", image: tariqImage },
 ];
 
-const generalBody: Member[] = [
+const generalMembers: Member[] = [
   { name: "মোঃ ইমরান হোসেন", role: "সিনিয়র সদস্য", image: imranImage },
   { name: "মোঃ শরিফ হোসেন", role: "সাধারণ সদস্য", image: sharifImage },
 ];
@@ -55,149 +56,111 @@ const volunteers: Member[] = [
   { name: "স্বেচ্ছাসেবক ৩", role: "স্বেচ্ছাসেবক", image: null },
 ];
 
-const MemberCard = ({ member, onClick }: { member: Member; onClick: () => void }) => (
-  <div 
-    className="bg-card rounded-xl p-3 md:p-5 text-center shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+/* =====================
+   COMPONENTS
+===================== */
+
+const MemberCard = ({
+  member,
+  onClick,
+}: {
+  member: Member;
+  onClick: () => void;
+}) => (
+  <div
     onClick={onClick}
+    className="bg-card rounded-xl p-4 text-center shadow hover:shadow-lg transition cursor-pointer"
   >
-    <div className="w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24 mx-auto mb-2 md:mb-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center overflow-hidden ring-2 ring-primary/10">
+    <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-muted flex items-center justify-center">
       {member.image ? (
         <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
       ) : (
-        <User className="w-6 h-6 md:w-10 md:h-10 lg:w-12 lg:h-12 text-primary/60" />
+        <User className="w-10 h-10 text-muted-foreground" />
       )}
     </div>
-    <h3 className="text-xs md:text-base lg:text-lg font-bold text-foreground leading-tight line-clamp-2">
-      {member.name}
-    </h3>
-    <p className="text-[10px] md:text-sm lg:text-base text-primary font-medium leading-tight mt-0.5 md:mt-1">
-      {member.role}
-    </p>
+    <h3 className="font-semibold text-sm">{member.name}</h3>
+    <p className="text-xs text-primary mt-1">{member.role}</p>
   </div>
 );
 
-interface MemberGridProps {
-  members: Member[];
-}
-
-const MemberGrid = ({ members }: MemberGridProps) => {
+const MemberGrid = ({ members }: { members: Member[] }) => {
   const [showAll, setShowAll] = useState(false);
-  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
-  const visibleMembers = showAll ? members : members.slice(0, 9);
-  const hasMore = members.length > 9;
+  const [selected, setSelected] = useState<Member | null>(null);
+
+  const visible = showAll ? members : members.slice(0, 9);
 
   return (
-    <div className="flex flex-col items-center">
-      <div className="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 max-w-xs md:max-w-2xl lg:max-w-4xl mx-auto">
-        {visibleMembers.map((member, index) => (
-          <MemberCard key={index} member={member} onClick={() => setSelectedMember(member)} />
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {visible.map((m, i) => (
+          <MemberCard key={i} member={m} onClick={() => setSelected(m)} />
         ))}
       </div>
-      {hasMore && (
+
+      {members.length > 9 && (
         <Button
           variant="ghost"
           size="sm"
+          className="mt-4"
           onClick={() => setShowAll(!showAll)}
-          className="mt-4 text-primary hover:text-primary/80 hover:bg-primary/5 gap-1"
         >
-          {showAll ? (
-            <>
-              সংক্ষিপ্ত করুন <ChevronUp className="w-4 h-4" />
-            </>
-          ) : (
-            <>
-              আরো দেখুন ({members.length - 9}+) <ChevronDown className="w-4 h-4" />
-            </>
-          )}
+          {showAll ? "সংক্ষিপ্ত করুন" : "আরো দেখুন"}
+          {showAll ? <ChevronUp /> : <ChevronDown />}
         </Button>
       )}
 
-      {/* Member Popup Dialog */}
-      <Dialog open={!!selectedMember} onOpenChange={() => setSelectedMember(null)}>
-        <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-card border-0">
-          <DialogTitle className="sr-only">
-            {selectedMember?.name || "সদস্যের বিবরণ"}
-          </DialogTitle>
-          {selectedMember && (
+      <Dialog open={!!selected} onOpenChange={() => setSelected(null)}>
+        <DialogContent className="p-0 overflow-hidden">
+          <DialogTitle className="sr-only">Member</DialogTitle>
+          {selected && (
             <div className="relative">
-              {/* Large Image */}
-              <div className="w-full aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                {selectedMember.image ? (
-                  <img 
-                    src={selectedMember.image} 
-                    alt={selectedMember.name} 
-                    className="w-full h-full object-cover"
-                  />
+              <div className="aspect-square">
+                {selected.image ? (
+                  <img src={selected.image} className="w-full h-full object-cover" />
                 ) : (
-                  <User className="w-24 h-24 text-primary/60" />
+                  <div className="flex items-center justify-center h-full">
+                    <User className="w-20 h-20" />
+                  </div>
                 )}
               </div>
-              
-              {/* Name and Role Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 pt-12">
-                <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
-                  {selectedMember.name}
-                </h3>
-                <p className="text-sm md:text-base text-white/80 font-medium mt-1">
-                  {selectedMember.role}
-                </p>
+              <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-4 text-white">
+                <h3 className="font-bold">{selected.name}</h3>
+                <p className="text-sm">{selected.role}</p>
               </div>
             </div>
           )}
         </DialogContent>
       </Dialog>
-    </div>
+    </>
   );
 };
 
+/* =====================
+   MAIN SECTION
+===================== */
+
 const TeamSection = () => {
   return (
-    <section id="team" className="py-12 md:py-20 bg-gradient-to-b from-secondary/30 to-background">
-      <div className="container mx-auto px-4">
-        {/* Elegant Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
-            নেতৃত্ব
-          </h2>
-          <div className="mt-3 flex items-center justify-center gap-2">
-            <span className="h-[1px] w-8 md:w-12 bg-gradient-to-r from-transparent to-primary/60"></span>
-            <span className="h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-primary"></span>
-            <span className="h-[1px] w-8 md:w-12 bg-gradient-to-l from-transparent to-primary/60"></span>
-          </div>
-        </div>
+    <section id="team" className="py-16">
+      <div className="container mx-auto max-w-5xl">
+        <h2 className="text-3xl font-bold text-center mb-10">আমাদের টিম</h2>
 
-        {/* Tabs */}
-        <Tabs defaultValue="executive" className="w-full max-w-4xl mx-auto">
-          <TabsList className="grid w-full grid-cols-3 mb-6 md:mb-8 h-auto p-1 bg-muted/50">
-            <TabsTrigger 
-              value="executive" 
-              className="text-[10px] md:text-sm py-2 md:py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
-              কার্যনির্বাহী কমিটি
-            </TabsTrigger>
-            <TabsTrigger 
-              value="general" 
-              className="text-[10px] md:text-sm py-2 md:py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
-              সাধারণ সদস্য
-            </TabsTrigger>
-            <TabsTrigger 
-              value="volunteers" 
-              className="text-[10px] md:text-sm py-2 md:py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-            >
-              স্বেচ্ছাসেবক
-            </TabsTrigger>
+        <Tabs defaultValue="executive">
+          <TabsList className="grid grid-cols-3 mb-6">
+            <TabsTrigger value="executive">কার্যনির্বাহী</TabsTrigger>
+            <TabsTrigger value="general">সাধারণ সদস্য</TabsTrigger>
+            <TabsTrigger value="volunteers">স্বেচ্ছাসেবক</TabsTrigger>
           </TabsList>
-          
-          <TabsContent value="executive" className="mt-0">
-            <MemberGrid members={executiveMembers} />
+
+          <TabsContent value="executive">
+            <MemberGrid members={executiveCommittee} />
           </TabsContent>
-          
-          <TabsContent value="general" className="mt-0">
+
+          <TabsContent value="general">
             <MemberGrid members={generalMembers} />
           </TabsContent>
-          
-          <TabsContent value="volunteers" className="mt-0">
+
+          <TabsContent value="volunteers">
             <MemberGrid members={volunteers} />
           </TabsContent>
         </Tabs>
