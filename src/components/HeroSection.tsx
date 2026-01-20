@@ -48,7 +48,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
         {/* Organization name */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 leading-tight animate-fadeIn">
-          পূর্বাশা সামাজিক উন্নয়ন সংস্থা
+          প্রজন্ম জাগরণ সোসাইটি
         </h1>
 
         {/* Subtitle */}
