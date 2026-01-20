@@ -1,7 +1,3 @@
-/* =====================
-   TEAM SECTION (3x3 GRID)
-===================== */
-
 import { User, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -14,7 +10,7 @@ import rashedulImage from "@/assets/team-rashedul.jpg";
 import nadimImage from "@/assets/team-nadim.jpg";
 import jalilImage from "@/assets/team-jalil.jpg";
 import uzzalImage from "@/assets/team-uzzal.jpg";
-import alrakibImage from "@/assets/team-alrakib.jpg";
+// import alrakibImage from "@/assets/team-alrakib.jpg"; // Available if needed
 import imranImage from "@/assets/team-imran.jpg";
 import bokkorImage from "@/assets/team-bokkor.jpg";
 import sharifImage from "@/assets/team-sharif.jpg";
@@ -60,17 +56,24 @@ const generalMembers: Member[] = [
 const MemberCard = ({ member, onClick }: { member: Member; onClick: () => void }) => (
   <div
     onClick={onClick}
-    className="bg-card border border-border rounded-xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer"
+    className="bg-card border border-border rounded-lg p-2 sm:p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer flex flex-col items-center w-full"
   >
-    <div className="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden bg-muted flex items-center justify-center border-2 border-primary/10">
+    {/* Responsive image sizing for 3-column layout */}
+    <div className="w-14 h-14 xs:w-16 xs:h-16 sm:w-24 sm:h-24 mb-2 rounded-full overflow-hidden bg-muted flex items-center justify-center border-2 border-primary/10">
       {member.image ? (
         <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
       ) : (
-        <User className="w-10 h-10 text-muted-foreground" />
+        <User className="w-6 h-6 sm:w-10 sm:h-10 text-muted-foreground" />
       )}
     </div>
-    <h3 className="font-semibold text-sm leading-tight">{member.name}</h3>
-    <p className="text-xs text-primary font-medium mt-1">{member.role}</p>
+    
+    {/* Text sizing adjusted for mobile density */}
+    <h3 className="font-bold text-[10px] sm:text-sm leading-tight line-clamp-2 min-h-[2.5em] flex items-center justify-center">
+      {member.name}
+    </h3>
+    <p className="text-[9px] sm:text-xs text-primary font-medium mt-1 truncate w-full">
+      {member.role}
+    </p>
   </div>
 );
 
@@ -78,12 +81,12 @@ const MemberGrid = ({ members }: { members: Member[] }) => {
   const [showAll, setShowAll] = useState(false);
   const [selected, setSelected] = useState<Member | null>(null);
 
-  // Show up to 9 members in a 3x3 grid
+  // Default to 9 for the "3x3" grid appearance
   const visible = showAll ? members : members.slice(0, 9);
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
+      <div className="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-6 justify-items-center">
         {visible.map((m, i) => (
           <MemberCard key={i} member={m} onClick={() => setSelected(m)} />
         ))}
@@ -99,10 +102,10 @@ const MemberGrid = ({ members }: { members: Member[] }) => {
       )}
 
       <Dialog open={!!selected} onOpenChange={() => setSelected(null)}>
-        <DialogContent className="sm:max-w-xs p-0 overflow-hidden border-none bg-transparent">
+        <DialogContent className="max-w-[90vw] sm:max-w-xs p-0 overflow-hidden border-none bg-transparent shadow-2xl">
           <DialogTitle className="sr-only">Member Details</DialogTitle>
           {selected && (
-            <div className="relative rounded-lg overflow-hidden">
+            <div className="relative rounded-2xl overflow-hidden bg-white dark:bg-slate-900">
               <div className="aspect-square bg-muted">
                 {selected.image ? (
                   <img src={selected.image} className="w-full h-full object-cover" />
@@ -112,9 +115,9 @@ const MemberGrid = ({ members }: { members: Member[] }) => {
                   </div>
                 )}
               </div>
-              <div className="bg-white dark:bg-slate-900 p-4 text-center">
-                <h3 className="font-bold text-lg">{selected.name}</h3>
-                <p className="text-primary font-medium">{selected.role}</p>
+              <div className="p-6 text-center">
+                <h3 className="font-bold text-xl mb-1">{selected.name}</h3>
+                <p className="text-primary font-semibold">{selected.role}</p>
               </div>
             </div>
           )}
@@ -130,39 +133,41 @@ const MemberGrid = ({ members }: { members: Member[] }) => {
 
 const TeamSection = () => {
   return (
-    <section id="team" className="py-16 px-4">
+    <section id="team" className="py-12 px-2 sm:py-16 sm:px-4">
       <div className="container mx-auto max-w-5xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">আমাদের টিম</h2>
-          <p className="text-muted-foreground">প্রজন্ম জাগরণ সোসাইটি</p>
+        <div className="text-center mb-10">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-2">আমাদের টিম</h2>
+          <p className="text-muted-foreground text-sm sm:text-base">প্রজন্ম জাগরণ সোসাইটি</p>
         </div>
 
-        {/* Central Leadership */}
+        {/* Central Leadership - Forced 3x3 Grid */}
         <div className="mb-12">
-          <h3 className="text-xl font-bold text-center mb-6 text-primary">কেন্দ্রীয় নেতৃত্ব</h3>
+          <h3 className="text-lg sm:text-xl font-bold text-center mb-6 text-primary border-b border-primary/10 pb-2 inline-block mx-auto flex w-fit">
+            কেন্দ্রীয় নেতৃত্ব
+          </h3>
           <MemberGrid members={centralLeadership} />
         </div>
 
-        {/* Tabs */}
+        {/* Tabs for Other Categories */}
         <Tabs defaultValue="executive" className="w-full">
-          <TabsList className="grid grid-cols-3 mb-8 text-center">
-            <TabsTrigger value="executive">কার্যনির্বাহী</TabsTrigger>
-            <TabsTrigger value="advisory">উপদেষ্টা</TabsTrigger>
-            <TabsTrigger value="general">সদস্যবৃন্দ</TabsTrigger>
+          <TabsList className="grid grid-cols-3 mb-8 h-auto p-1 bg-muted/50 rounded-lg">
+            <TabsTrigger value="executive" className="text-[11px] sm:text-sm py-2">কার্যনির্বাহী</TabsTrigger>
+            <TabsTrigger value="advisory" className="text-[11px] sm:text-sm py-2">উপদেষ্টা</TabsTrigger>
+            <TabsTrigger value="general" className="text-[11px] sm:text-sm py-2">সদস্যবৃন্দ</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="executive">
-            <h4 className="text-lg font-semibold mb-4 text-center">কার্যনির্বাহী পরিষদ</h4>
+          <TabsContent value="executive" className="focus-visible:outline-none">
+            <h4 className="text-base sm:text-lg font-semibold mb-6 text-center text-muted-foreground">কার্যনির্বাহী পরিষদ</h4>
             <MemberGrid members={executiveCommittee} />
           </TabsContent>
 
-          <TabsContent value="advisory">
-            <h4 className="text-lg font-semibold mb-4 text-center">উপদেষ্টা ও বিশেষ দায়িত্ব</h4>
+          <TabsContent value="advisory" className="focus-visible:outline-none">
+            <h4 className="text-base sm:text-lg font-semibold mb-6 text-center text-muted-foreground">উপদেষ্টা ও বিশেষ দায়িত্ব</h4>
             <MemberGrid members={advisoryRoles} />
           </TabsContent>
 
-          <TabsContent value="general">
-            <h4 className="text-lg font-semibold mb-4 text-center">সাধারণ পরিষদ</h4>
+          <TabsContent value="general" className="focus-visible:outline-none">
+            <h4 className="text-base sm:text-lg font-semibold mb-6 text-center text-muted-foreground">সাধারণ পরিষদ</h4>
             <MemberGrid members={generalMembers} />
           </TabsContent>
         </Tabs>
