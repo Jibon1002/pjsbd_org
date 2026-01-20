@@ -2,40 +2,18 @@ import { User, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
-import nadimImage from "@/assets/team-nadim.jpg";
-import bokkorImage from "@/assets/team-bokkor.jpg";
-import sharifImage from "@/assets/team-sharif.jpg"; 
-import imranImage from "@/assets/team-imran.jpg";
-import shohidImage from "@/assets/team-shohid.jpg";
-import uzzalImage from "@/assets/team-uzzal.jpg";
-import jalilImage from "@/assets/team-jalil.jpg";
+
+// Import team images
 import tariqImage from "@/assets/team-tariq.jpg";
 import rashedulImage from "@/assets/team-rashedul.jpg";
+import nadimImage from "@/assets/team-nadim.jpg";
+import jalilImage from "@/assets/team-jalil.jpg";
+import uzzalImage from "@/assets/team-uzzal.jpg";
 import alrakibImage from "@/assets/team-alrakib.jpg";
-
-const executiveMembers = [
-  { name: "মোঃ নাদিম মোস্তফা জীবন", role: "আহ্বায়ক", image: nadimImage },
-  { name: "আবু বক্কর সিদ্দিক", role: "সদস্য সচিব", image: bokkorImage },
-  { name: "মোঃ উজ্জল হোসেন", role: "সাংগঠনিক সম্পাদক", image: uzzalImage },
-  { name: "এম. রাশেদুল ইসলাম", role: "ধর্ম বিষয়ক সম্পাদক", image: rashedulImage },
-  { name: "মোঃ আব্দুল জলিল", role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক", image: jalilImage },
-  { name: "তারিকুল ইসলাম", role: "নৈতিক পরামর্শক", image: tariqImage },
-  { name: "মোঃ ইমরান হোসেন", role: "জনসংযোগ সম্পাদক", image: imranImage },
-  { name: "মোঃ শরীফ হোসেন", role: "প্রচার সম্পাদক", image: sharifImage },
-  { name: "মোঃ শহিদুল ইসলাম শহিদ", role: "কার্যনির্বাহী সদস্য", image: shohidImage },
-];
-
-const generalMembers = [
-  { name: "সাধারণ সদস্য ১", role: "সদস্য", image: null },
-  { name: "সাধারণ সদস্য ২", role: "সদস্য", image: null },
-  { name: "সাধারণ সদস্য ৩", role: "সদস্য", image: null },
-];
-
-const volunteers = [
-  { name: "আব্দুল্লাহ আল রাকিব", role: "স্বেচ্ছাসেবক", image: alrakibImage },
-  { name: "স্বেচ্ছাসেবক ২", role: "স্বেচ্ছাসেবক", image: null },
-  { name: "স্বেচ্ছাসেবক ৩", role: "স্বেচ্ছাসেবক", image: null },
-];
+import imranImage from "@/assets/team-imran.jpg";
+import bokkorImage from "@/assets/team-bokkor.jpg";
+import sharifImage from "@/assets/team-sharif.jpg";
+import shohidImage from "@/assets/team-shohid.jpg";
 
 interface Member {
   name: string;
@@ -43,19 +21,43 @@ interface Member {
   image: string | null;
 }
 
+const executiveMembers: Member[] = [
+  { name: "তারিকুল ইসলাম", role: "প্রতিষ্ঠাতা সভাপতি", image: tariqImage },
+  { name: "সুজন চন্দ্র দাস", role: "সাধারণ সম্পাদক", image: rashedulImage },
+  { name: "মোঃ নাদিম মোস্তফা", role: "সহ সভাপতি", image: nadimImage },
+  { name: "মোঃ জালাল উদ্দিন", role: "যুগ্ম সাধারণ সম্পাদক", image: jalilImage },
+  { name: "রবিউল ইসলাম উজ্জ্বল", role: "সাংগঠনিক সম্পাদক", image: uzzalImage },
+  { name: "মোঃ ইমরান হোসেন", role: "অর্থ সম্পাদক", image: imranImage },
+  { name: "মোঃ বক্কর আলী", role: "প্রচার সম্পাদক", image: bokkorImage },
+  { name: "মোঃ শরিফুল আলম", role: "তথ্য ও প্রযুক্তি সম্পাদক", image: sharifImage },
+  { name: "মোঃ শহিদুল ইসলাম", role: "সদস্য", image: shohidImage },
+];
+
+const generalMembers: Member[] = [
+  { name: "সদস্য ১", role: "সাধারণ সদস্য", image: null },
+  { name: "সদস্য ২", role: "সাধারণ সদস্য", image: null },
+  { name: "সদস্য ৩", role: "সাধারণ সদস্য", image: null },
+];
+
+const volunteers: Member[] = [
+  { name: "আব্দুল্লাহ আল রাকিব", role: "স্বেচ্ছাসেবক", image: alrakibImage },
+  { name: "স্বেচ্ছাসেবক ২", role: "স্বেচ্ছাসেবক", image: null },
+  { name: "স্বেচ্ছাসেবক ৩", role: "স্বেচ্ছাসেবক", image: null },
+];
+
 const MemberCard = ({ member }: { member: Member }) => (
-  <div className="bg-card rounded-lg p-2 text-center shadow-soft hover:shadow-elevated transition-all duration-300">
-    <div className="w-10 h-10 md:w-12 md:h-12 mx-auto mb-1.5 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center overflow-hidden ring-1 ring-primary/10">
+  <div className="bg-card rounded-xl p-3 md:p-5 text-center shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
+    <div className="w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24 mx-auto mb-2 md:mb-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center overflow-hidden ring-2 ring-primary/10">
       {member.image ? (
         <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
       ) : (
-        <User className="w-5 h-5 md:w-6 md:h-6 text-primary/60" />
+        <User className="w-6 h-6 md:w-10 md:h-10 lg:w-12 lg:h-12 text-primary/60" />
       )}
     </div>
-    <h3 className="text-[10px] md:text-xs font-bold text-foreground leading-tight line-clamp-2">
+    <h3 className="text-xs md:text-base lg:text-lg font-bold text-foreground leading-tight line-clamp-2">
       {member.name}
     </h3>
-    <p className="text-[9px] md:text-[10px] text-primary font-medium leading-tight mt-0.5">
+    <p className="text-[10px] md:text-sm lg:text-base text-primary font-medium leading-tight mt-0.5 md:mt-1">
       {member.role}
     </p>
   </div>
@@ -72,7 +74,7 @@ const MemberGrid = ({ members }: MemberGridProps) => {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="grid grid-cols-3 gap-2 md:gap-3 max-w-sm mx-auto">
+      <div className="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 max-w-xs md:max-w-2xl lg:max-w-4xl mx-auto">
         {visibleMembers.map((member, index) => (
           <MemberCard key={index} member={member} />
         ))}
@@ -101,55 +103,52 @@ const MemberGrid = ({ members }: MemberGridProps) => {
 
 const TeamSection = () => {
   return (
-    <section id="team" className="py-12 md:py-16 bg-gradient-to-b from-secondary/30 to-background">
+    <section id="team" className="py-12 md:py-20 bg-gradient-to-b from-secondary/30 to-background">
       <div className="container mx-auto px-4">
         {/* Elegant Header */}
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground tracking-tight">
             নেতৃত্ব
           </h2>
           <div className="mt-3 flex items-center justify-center gap-2">
-            <span className="h-[1px] w-8 bg-gradient-to-r from-transparent to-primary/60"></span>
-            <span className="h-1.5 w-1.5 rounded-full bg-primary"></span>
-            <span className="h-[1px] w-8 bg-gradient-to-l from-transparent to-primary/60"></span>
+            <span className="h-[1px] w-8 md:w-12 bg-gradient-to-r from-transparent to-primary/60"></span>
+            <span className="h-1.5 w-1.5 md:h-2 md:w-2 rounded-full bg-primary"></span>
+            <span className="h-[1px] w-8 md:w-12 bg-gradient-to-l from-transparent to-primary/60"></span>
           </div>
         </div>
 
-        {/* Tabs Navigation */}
-        <Tabs defaultValue="executive" className="w-full">
-          <div className="flex justify-center mb-6 overflow-x-auto scrollbar-hide">
-            <TabsList className="inline-flex h-auto p-1 bg-muted/50 rounded-full gap-1">
-              <TabsTrigger
-                value="executive"
-                className="px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium whitespace-nowrap transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm"
-              >
-                কার্যনির্বাহী কমিটি
-              </TabsTrigger>
-              <TabsTrigger
-                value="general"
-                className="px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium whitespace-nowrap transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm"
-              >
-                সাধারণ সদস্য
-              </TabsTrigger>
-              <TabsTrigger
-                value="volunteers"
-                className="px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium whitespace-nowrap transition-all data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=active]:shadow-sm"
-              >
-                স্বেচ্ছাসেবক
-              </TabsTrigger>
-            </TabsList>
-          </div>
-
-          {/* Tab Contents */}
-          <TabsContent value="executive" className="mt-0 animate-fade-in">
+        {/* Tabs */}
+        <Tabs defaultValue="executive" className="w-full max-w-4xl mx-auto">
+          <TabsList className="grid w-full grid-cols-3 mb-6 md:mb-8 h-auto p-1 bg-muted/50">
+            <TabsTrigger 
+              value="executive" 
+              className="text-[10px] md:text-sm py-2 md:py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            >
+              কার্যনির্বাহী কমিটি
+            </TabsTrigger>
+            <TabsTrigger 
+              value="general" 
+              className="text-[10px] md:text-sm py-2 md:py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            >
+              সাধারণ সদস্য
+            </TabsTrigger>
+            <TabsTrigger 
+              value="volunteers" 
+              className="text-[10px] md:text-sm py-2 md:py-3 data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+            >
+              স্বেচ্ছাসেবক
+            </TabsTrigger>
+          </TabsList>
+          
+          <TabsContent value="executive" className="mt-0">
             <MemberGrid members={executiveMembers} />
           </TabsContent>
-
-          <TabsContent value="general" className="mt-0 animate-fade-in">
+          
+          <TabsContent value="general" className="mt-0">
             <MemberGrid members={generalMembers} />
           </TabsContent>
-
-          <TabsContent value="volunteers" className="mt-0 animate-fade-in">
+          
+          <TabsContent value="volunteers" className="mt-0">
             <MemberGrid members={volunteers} />
           </TabsContent>
         </Tabs>
