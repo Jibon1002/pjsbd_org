@@ -14,6 +14,7 @@ import imranImage from "@/assets/team-imran.jpg";
 import bokkorImage from "@/assets/team-bokkor.jpg";
 import sharifImage from "@/assets/team-sharif.jpg";
 import shohidImage from "@/assets/team-shohid.jpg";
+import mizanImage from "@/assets/team-mizan.jpg";
 
 interface Member {
   name: string;
@@ -22,15 +23,16 @@ interface Member {
 }
 
 const executiveMembers: Member[] = [
-  { name: "তারিকুল ইসলাম", role: "প্রতিষ্ঠাতা সভাপতি", image: tariqImage },
-  { name: "সুজন চন্দ্র দাস", role: "সাধারণ সম্পাদক", image: rashedulImage },
-  { name: "মোঃ নাদিম মোস্তফা", role: "সহ সভাপতি", image: nadimImage },
-  { name: "মোঃ জালাল উদ্দিন", role: "যুগ্ম সাধারণ সম্পাদক", image: jalilImage },
-  { name: "রবিউল ইসলাম উজ্জ্বল", role: "সাংগঠনিক সম্পাদক", image: uzzalImage },
-  { name: "মোঃ ইমরান হোসেন", role: "অর্থ সম্পাদক", image: imranImage },
-  { name: "মোঃ বক্কর আলী", role: "প্রচার সম্পাদক", image: bokkorImage },
-  { name: "মোঃ শরিফুল আলম", role: "তথ্য ও প্রযুক্তি সম্পাদক", image: sharifImage },
-  { name: "মোঃ শহিদুল ইসলাম", role: "সদস্য", image: shohidImage },
+   { name: "মোঃ নাদিম মোস্তফা জীবন", role: "আহ্বায়ক", image: nadimImage }, 
+   { name: "মোঃ মিজানুর রহমান", role: "সহ-আহ্বায়ক", image: mizanImage }, 
+  { name: "আবু বক্কর সিদ্দিক", role: "সদস্য সচিব", image: bokkorImage }, 
+  { name: "মোঃ উজ্জ্বল হোসেন", role: "সাংগঠনিক সম্পাদক", image: uzzalImage }, 
+  { name: "মাওঃ এম রাশেদুল ইসলাম ", role: "ধর্ম বিষয়ক সম্পাদক", image: rashedulImage }, 
+  { name: "আব্দুল জলিল", role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক", image: jalilImage },
+  { name: "মোঃ শহিদুল ইসলাম", role: "কার্যনির্বাহী সদস্য ", image: shohidImage }, 
+  { name: "তারিকুল ইসলাম", role: "নৈতিক পরামর্শক", image: tariqImage },
+  { name: "মোঃ ইমরান হোসেন", role: "সিনিয়র সদস্য", image: imranImage },
+  { name: "মোঃ শরিফ হোসেন", role: "সদস্য", image: sharifImage },
 ];
 
 const generalMembers: Member[] = [
