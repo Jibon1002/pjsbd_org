@@ -1,10 +1,14 @@
+/* =====================
+   TEAM SECTION (3x3 GRID)
+===================== */
+
 import { User, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 
-// Images (Ensure these paths are correct in your project)
+// Images
 import tariqImage from "@/assets/team-tariq.jpg";
 import rashedulImage from "@/assets/team-rashedul.jpg";
 import nadimImage from "@/assets/team-nadim.jpg";
@@ -58,7 +62,7 @@ const MemberCard = ({ member, onClick }: { member: Member; onClick: () => void }
     onClick={onClick}
     className="bg-card border border-border rounded-xl p-4 text-center shadow-sm hover:shadow-md transition cursor-pointer"
   >
-    <div className="w-20 h-20 mx-auto mb-3 rounded-full overflow-hidden bg-muted flex items-center justify-center border-2 border-primary/10">
+    <div className="w-24 h-24 mx-auto mb-3 rounded-full overflow-hidden bg-muted flex items-center justify-center border-2 border-primary/10">
       {member.image ? (
         <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
       ) : (
@@ -74,11 +78,12 @@ const MemberGrid = ({ members }: { members: Member[] }) => {
   const [showAll, setShowAll] = useState(false);
   const [selected, setSelected] = useState<Member | null>(null);
 
+  // Show max 9 by default
   const visible = showAll ? members : members.slice(0, 9);
 
   return (
     <>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {visible.map((m, i) => (
           <MemberCard key={i} member={m} onClick={() => setSelected(m)} />
         ))}
@@ -132,19 +137,17 @@ const TeamSection = () => {
           <p className="text-muted-foreground">প্রজন্ম জাগরণ সোসাইটি</p>
         </div>
 
-        {/* Central Leadership - Always Visible */}
+        {/* Central Leadership */}
         <div className="mb-12">
           <h3 className="text-xl font-bold text-center mb-6 text-primary">কেন্দ্রীয় নেতৃত্ব</h3>
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
             {centralLeadership.map((m, i) => (
-              <div key={i} className="w-40">
-                <MemberCard member={m} onClick={() => {}} />
-              </div>
+              <MemberCard key={i} member={m} onClick={() => {}} />
             ))}
           </div>
         </div>
 
-        {/* Tabs for other categories */}
+        {/* Tabs */}
         <Tabs defaultValue="executive" className="w-full">
           <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="executive">কার্যনির্বাহী</TabsTrigger>
@@ -153,7 +156,7 @@ const TeamSection = () => {
           </TabsList>
 
           <TabsContent value="executive">
-             <h4 className="text-lg font-semibold mb-4 text-center">কার্যনির্বাহী পরিষদ</h4>
+            <h4 className="text-lg font-semibold mb-4 text-center">কার্যনির্বাহী পরিষদ</h4>
             <MemberGrid members={executiveCommittee} />
           </TabsContent>
 
