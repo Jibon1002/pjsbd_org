@@ -28,41 +28,25 @@ interface Member {
 }
 
 const centralLeadership: Member[] = [
-   { name: "মোঃ নাদিম মোস্তফা জীবন", role: "আহ্বায়ক", image: nadimImage }, 
-   { name: "মোঃ মিজানুর রহমান", role: "সহ-আহ্বায়ক", image: mizanImage }, 
-  { name: "আবু বক্কর সিদ্দিক", role: "সদস্য সচিব", image: bokkorImage }, 
-  { name: "মোঃ উজ্জ্বল হোসেন", role: "সাংগঠনিক সম্পাদক", image: uzzalImage }, 
-  { name: "মাওঃ এম রাশেদুল ইসলাম ", role: "ধর্ম বিষয়ক সম্পাদক", image: rashedulImage }, 
-  { name: "আব্দুল জলিল", role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক", image: jalilImage },
-  { name: "মোঃ শহিদুল ইসলাম", role: "কার্যনির্বাহী সদস্য ", image: shohidImage }, 
-  { name: "তারিকুল ইসলাম", role: "নৈতিক পরামর্শক", image: tariqImage },
-  { name: "মোঃ ইমরান হোসেন", role: "সিনিয়র সদস্য", image: imranImage },
-  { name: "মোঃ শরিফ হোসেন", role: "সদস্য", image: sharifImage },
+  { name: "মোঃ নাদিম মোস্তফা জীবন", role: "আহ্বায়ক", image: nadimImage },
+  { name: "মোঃ মিজানুর রহমান", role: "সহ-আহ্বায়ক", image: mizanImage },
+  { name: "আবু বক্কর সিদ্দিক", role: "সদস্য সচিব", image: bokkorImage },
 ];
 
 const executiveCommittee: Member[] = [
-  { name: "মোঃ উজ্জ্বল হোসেন", role: "সাংগঠনিক সম্পাদক", image: uzzalImage }, 
-  { name: "মাওঃ এম রাশেদুল ইসলাম ", role: "ধর্ম বিষয়ক সম্পাদক", image: rashedulImage }, 
+  { name: "মোঃ উজ্জ্বল হোসেন", role: "সাংগঠনিক সম্পাদক", image: uzzalImage },
+  { name: "মাওঃ এম রাশেদুল ইসলাম", role: "ধর্ম বিষয়ক সম্পাদক", image: rashedulImage },
   { name: "আব্দুল জলিল", role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক", image: jalilImage },
-  { name: "মোঃ শহিদুল ইসলাম", role: "কার্যনির্বাহী সদস্য ", image: shohidImage }, 
-  { name: "তারিকুল ইসলাম", role: "নৈতিক পরামর্শক", image: tariqImage },
-  { name: "মোঃ ইমরান হোসেন", role: "সিনিয়র সদস্য", image: imranImage },
-  { name: "মোঃ শরিফ হোসেন", role: "সদস্য", image: sharifImage },
+  { name: "মোঃ শহিদুল ইসলাম", role: "কার্যনির্বাহী সদস্য", image: shohidImage },
 ];
 
-const executiveCommittee: Member[] = [
-  { name: "মোঃ উজ্জ্বল হোসেন", role: "সাংগঠনিক সম্পাদক", image: uzzalImage }, 
-  { name: "মাওঃ এম রাশেদুল ইসলাম ", role: "ধর্ম বিষয়ক সম্পাদক", image: rashedulImage }, 
-  { name: "আব্দুল জলিল", role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক", image: jalilImage },
-  { name: "মোঃ শহিদুল ইসলাম", role: "কার্যনির্বাহী সদস্য ", image: shohidImage }, 
+onst advisoryBoard: Member[] = [
   { name: "তারিকুল ইসলাম", role: "নৈতিক পরামর্শক", image: tariqImage },
-  
 ];
 
 const generalBody: Member[] = [
   { name: "মোঃ ইমরান হোসেন", role: "সিনিয়র সদস্য", image: imranImage },
-  { name: "মোঃ শরিফ হোসেন", role: "সদস্য", image: sharifImage },
-  { name: "সদস্য ৩", role: "সাধারণ সদস্য", image: null },
+  { name: "মোঃ শরিফ হোসেন", role: "সাধারণ সদস্য", image: sharifImage },
 ];
 
 const volunteers: Member[] = [
