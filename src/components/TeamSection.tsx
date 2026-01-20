@@ -1,7 +1,12 @@
-import { User, ChevronDown, ChevronUp } from "lucide-react";
+import { User, ChevronDown, ChevronUp, X } from "lucide-react";
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 // Import team images
 import tariqImage from "@/assets/team-tariq.jpg";
@@ -28,10 +33,10 @@ const executiveMembers: Member[] = [
   { name: "আবু বক্কর সিদ্দিক", role: "সদস্য সচিব", image: bokkorImage }, 
   { name: "মোঃ উজ্জ্বল হোসেন", role: "সাংগঠনিক সম্পাদক", image: uzzalImage }, 
   { name: "মাওঃ এম রাশেদুল ইসলাম ", role: "ধর্ম বিষয়ক সম্পাদক", image: rashedulImage }, 
-  { name: "আব্দুল জলিল", role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক", image: jalilImage },
+  { name: "আব্দুল জলিল", role: "স্বাস্থ্য সেবা বিষয়ক সম্পাদক", image: jalilImage },
   { name: "মোঃ শহিদুল ইসলাম", role: "কার্যনির্বাহী সদস্য ", image: shohidImage }, 
   { name: "তারিকুল ইসলাম", role: "নৈতিক পরামর্শক", image: tariqImage },
-  { name: "মোঃ ইমরান হোসেন", role: "সিনিয়র সদস্য", image: imranImage },
+  { name: "মোঃ ইমরান হোসেন", role: "সিনিয়র সদস্য", image: imranImage },
   { name: "মোঃ শরিফ হোসেন", role: "সদস্য", image: sharifImage },
 ];
 
@@ -47,8 +52,11 @@ const volunteers: Member[] = [
   { name: "স্বেচ্ছাসেবক ৩", role: "স্বেচ্ছাসেবক", image: null },
 ];
 
-const MemberCard = ({ member }: { member: Member }) => (
-  <div className="bg-card rounded-xl p-3 md:p-5 text-center shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
+const MemberCard = ({ member, onClick }: { member: Member; onClick: () => void }) => (
+  <div 
+    className="bg-card rounded-xl p-3 md:p-5 text-center shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 cursor-pointer"
+    onClick={onClick}
+  >
     <div className="w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24 mx-auto mb-2 md:mb-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full flex items-center justify-center overflow-hidden ring-2 ring-primary/10">
       {member.image ? (
         <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
@@ -71,6 +79,7 @@ interface MemberGridProps {
 
 const MemberGrid = ({ members }: MemberGridProps) => {
   const [showAll, setShowAll] = useState(false);
+  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
   const visibleMembers = showAll ? members : members.slice(0, 9);
   const hasMore = members.length > 9;
 
@@ -78,7 +87,7 @@ const MemberGrid = ({ members }: MemberGridProps) => {
     <div className="flex flex-col items-center">
       <div className="grid grid-cols-3 gap-2 md:gap-4 lg:gap-6 max-w-xs md:max-w-2xl lg:max-w-4xl mx-auto">
         {visibleMembers.map((member, index) => (
-          <MemberCard key={index} member={member} />
+          <MemberCard key={index} member={member} onClick={() => setSelectedMember(member)} />
         ))}
       </div>
       {hasMore && (
@@ -99,6 +108,41 @@ const MemberGrid = ({ members }: MemberGridProps) => {
           )}
         </Button>
       )}
+
+      {/* Member Popup Dialog */}
+      <Dialog open={!!selectedMember} onOpenChange={() => setSelectedMember(null)}>
+        <DialogContent className="sm:max-w-md p-0 overflow-hidden bg-card border-0">
+          <DialogTitle className="sr-only">
+            {selectedMember?.name || "সদস্যের বিবরণ"}
+          </DialogTitle>
+          {selectedMember && (
+            <div className="relative">
+              {/* Large Image */}
+              <div className="w-full aspect-square bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                {selectedMember.image ? (
+                  <img 
+                    src={selectedMember.image} 
+                    alt={selectedMember.name} 
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <User className="w-24 h-24 text-primary/60" />
+                )}
+              </div>
+              
+              {/* Name and Role Overlay */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 pt-12">
+                <h3 className="text-xl md:text-2xl font-bold text-white leading-tight">
+                  {selectedMember.name}
+                </h3>
+                <p className="text-sm md:text-base text-white/80 font-medium mt-1">
+                  {selectedMember.role}
+                </p>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
