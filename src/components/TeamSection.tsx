@@ -78,12 +78,12 @@ const MemberGrid = ({ members }: { members: Member[] }) => {
   const [showAll, setShowAll] = useState(false);
   const [selected, setSelected] = useState<Member | null>(null);
 
-  // Show max 9 by default
+  // Show up to 9 members in a 3x3 grid
   const visible = showAll ? members : members.slice(0, 9);
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
         {visible.map((m, i) => (
           <MemberCard key={i} member={m} onClick={() => setSelected(m)} />
         ))}
@@ -140,16 +140,12 @@ const TeamSection = () => {
         {/* Central Leadership */}
         <div className="mb-12">
           <h3 className="text-xl font-bold text-center mb-6 text-primary">কেন্দ্রীয় নেতৃত্ব</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-items-center">
-            {centralLeadership.map((m, i) => (
-              <MemberCard key={i} member={m} onClick={() => {}} />
-            ))}
-          </div>
+          <MemberGrid members={centralLeadership} />
         </div>
 
         {/* Tabs */}
         <Tabs defaultValue="executive" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid grid-cols-3 mb-8 text-center">
             <TabsTrigger value="executive">কার্যনির্বাহী</TabsTrigger>
             <TabsTrigger value="advisory">উপদেষ্টা</TabsTrigger>
             <TabsTrigger value="general">সদস্যবৃন্দ</TabsTrigger>
