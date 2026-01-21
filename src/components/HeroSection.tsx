@@ -1,103 +1,77 @@
+import { useEffect, useState } from "react";
+
 const HeroSection = () => {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="home" className="relative min-h-[70vh] md:min-h-[75vh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
-      {/* Beautiful blue gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-cyan-400" />
-
-      {/* Animated gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 via-transparent to-transparent animate-pulse" style={{ animationDuration: '4s' }} />
-
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-float" style={{ animationDelay: '0s', animationDuration: '8s' }} />
-        <div className="absolute top-1/3 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-float" style={{ animationDelay: '2s', animationDuration: '10s' }} />
-        <div className="absolute bottom-1/3 left-1/3 w-1 h-1 bg-white rounded-full animate-float" style={{ animationDelay: '4s', animationDuration: '12s' }} />
-        <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-white rounded-full animate-float" style={{ animationDelay: '1s', animationDuration: '9s' }} />
+    <section id="home" className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden pt-16 md:pt-20">
+      {/* Deep ocean gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(210,100%,12%)] via-[hsl(205,85%,25%)] to-[hsl(200,80%,40%)]" />
+      
+      {/* Subtle light rays */}
+      <div className="absolute inset-0 overflow-hidden opacity-50">
+        <div className="absolute top-0 left-1/4 w-[1px] h-[50%] bg-gradient-to-b from-white/15 to-transparent rotate-[12deg] origin-top" />
+        <div className="absolute top-0 right-1/3 w-[1px] h-[45%] bg-gradient-to-b from-white/10 to-transparent rotate-[-8deg] origin-top" />
       </div>
 
-      {/* Beautiful wave animations */}
+      {/* Ocean waves */}
       <div className="absolute bottom-0 left-0 right-0">
-        {/* Wave 1 - Back */}
-        <svg
-          className="absolute bottom-0 left-0 w-[300%] h-[100px] md:h-[150px] text-white/5"
-          style={{ animation: 'wave 25s linear infinite' }}
-          viewBox="0 0 1440 320"
+        <svg 
+          className="absolute bottom-[20px] md:bottom-[30px] left-0 w-[200%] h-[40px] md:h-[60px] text-[hsl(200,75%,45%)]/30 animate-wave"
+          viewBox="0 0 1440 60" 
           preserveAspectRatio="none"
+          style={{ animationDuration: '8s' }}
         >
-          <path
-            fill="currentColor"
-            d="M0,160 C320,280 640,40 960,160 C1280,280 1600,40 1920,160 L1920,320 L0,320 Z"
-          />
+          <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="currentColor" />
         </svg>
-
-        {/* Wave 2 - Middle */}
-        <svg
-          className="absolute bottom-0 left-0 w-[300%] h-[80px] md:h-[120px] text-white/10"
-          style={{ animation: 'wave 20s linear infinite reverse' }}
-          viewBox="0 0 1440 320"
+        <svg 
+          className="absolute bottom-0 left-0 w-[200%] h-[30px] md:h-[45px] text-[hsl(200,80%,55%)]/40 animate-wave-reverse"
+          viewBox="0 0 1440 45" 
           preserveAspectRatio="none"
+          style={{ animationDuration: '6s' }}
         >
-          <path
-            fill="currentColor"
-            d="M0,96 C240,224 480,32 720,96 C960,160 1200,32 1440,96 L1440,320 L0,320 Z"
-          />
+          <path d="M0,22 C180,45 360,0 540,22 C720,45 900,0 1080,22 C1260,45 1380,30 1440,22 L1440,45 L0,45 Z" fill="currentColor" />
         </svg>
-
-        {/* Wave 3 - Front */}
-        <svg
-          className="absolute bottom-0 left-0 w-[200%] h-[60px] md:h-[100px] text-white/15"
-          style={{ animation: 'wave 15s linear infinite' }}
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <path
-            fill="currentColor"
-            d="M0,192 C360,288 720,96 1080,192 C1440,288 1800,96 2160,192 L2160,320 L0,320 Z"
-          />
-        </svg>
+        <div className="relative w-full h-[25px] md:h-[35px] bg-background" />
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Organization name with fade-in animation */}
-        <h1
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight opacity-0"
-          style={{ animation: 'fadeIn 1s ease-out 0.2s forwards' }}
-        >
+      <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
+        {/* Organization name */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 leading-tight animate-fadeIn">
           প্রজন্ম জাগরণ সোসাইটি
         </h1>
 
-        {/* Subtitle with slide-up animation */}
-        <p
-          className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 md:mb-10 leading-relaxed opacity-0"
-          style={{ animation: 'slideUp 1s ease-out 0.5s forwards' }}
-        >
+        {/* Subtitle */}
+        <p className="text-sm sm:text-base md:text-lg text-white/70 max-w-xl mx-auto mb-6 leading-relaxed animate-slideUp">
           সমাজের অবহেলিত ও দরিদ্র মানুষদের পাশে দাঁড়িয়ে তাদের জীবনমান উন্নয়নে কাজ করছি
         </p>
 
-        {/* CTA Buttons with staggered animation */}
-        <div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center opacity-0"
-          style={{ animation: 'slideUp 1s ease-out 0.8s forwards' }}
-        >
+        {/* CTA Buttons */}
+        <div className="flex flex-row gap-3 justify-center animate-slideUp" style={{ animationDelay: '0.2s' }}>
           <a
             href="#donate"
-            className="group relative inline-flex items-center justify-center px-8 py-3 bg-white text-blue-600 text-sm md:text-base font-semibold rounded-full hover:shadow-2xl hover:scale-105 transition-all duration-300 overflow-hidden"
+            className="inline-flex items-center justify-center px-6 py-2.5 bg-white text-[hsl(200,80%,30%)] text-sm font-semibold rounded-full hover:bg-white/90 transition-all duration-300 shadow-lg"
           >
-            <span className="relative z-10">অনুদান দিন</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            অনুদান দিন
           </a>
           <a
             href="#activities"
-            className="group inline-flex items-center justify-center px-8 py-3 bg-white/10 backdrop-blur-sm border-2 border-white/50 text-white text-sm md:text-base font-semibold rounded-full hover:bg-white/20 hover:border-white hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center justify-center px-6 py-2.5 bg-white/10 border border-white/30 text-white text-sm font-semibold rounded-full hover:bg-white/20 transition-all duration-300"
           >
             কার্যক্রম
           </a>
         </div>
       </div>
-
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   );
 };
